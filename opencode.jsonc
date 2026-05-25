@@ -37,6 +37,9 @@
       "git restore *": "deny",
       "git stash *": "deny",
 
+      // LUA ALLOW
+      "luac -p *": "allow",
+
       // NEOVIM ALLOW
       "nvim --version": "allow",
 
@@ -47,11 +50,12 @@
     "edit": "allow",
     "glob": "allow",
     "grep": "allow",
+    "question": "allow",
     "read": "allow",
     "skill": "allow",
+    "task": "allow",
     "todowrite": "allow",
     "webfetch": "allow",
-    "websearch": "allow",
-    "question": "allow"
+    "websearch": "allow"
   }
 }
