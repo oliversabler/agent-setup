@@ -1,61 +1,58 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "permission": {
-    "*": "ask",
+  "permissions": [
+    { "action": "*", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "ask" },
 
-    "bash": {
-      "*": "ask",
+    // DOTNET ALLOW
+    { "action": "shell", "resource": "dotnet build *", "effect": "allow" },
+    { "action": "shell", "resource": "dotnet test *", "effect": "allow" },
 
-      // DOTNET ALLOW
-      "dotnet build *": "allow",
-      "dotnet test *": "allow",
+    // GIT ALLOW
+    { "action": "shell", "resource": "git branch", "effect": "allow" },
+    { "action": "shell", "resource": "git branch --show-current", "effect": "allow" },
+    { "action": "shell", "resource": "git diff *", "effect": "allow" },
+    { "action": "shell", "resource": "git fetch", "effect": "allow" },
+    { "action": "shell", "resource": "git log *", "effect": "allow" },
+    { "action": "shell", "resource": "git show", "effect": "allow" },
+    { "action": "shell", "resource": "git status", "effect": "allow" },
 
-      // GIT ALLOW
-      "git branch": "allow",
-      "git branch --show-current": "allow",
-      "git diff *": "allow",
-      "git fetch": "allow",
-      "git log *": "allow",
-      "git show": "allow",
-      "git status": "allow",
+    // GIT ASK
+    { "action": "shell", "resource": "git add *", "effect": "ask" },
+    { "action": "shell", "resource": "git commit *", "effect": "ask" },
+    { "action": "shell", "resource": "git checkout *", "effect": "ask" },
+    { "action": "shell", "resource": "git pull", "effect": "ask" },
+    { "action": "shell", "resource": "git pull *", "effect": "ask" },
 
-      // GIT ASK
-      "git add *": "ask",
-      "git commit *": "ask",
-      "git checkout *": "ask",
-      "git pull": "ask",
-      "git pull *": "ask",
+    // GIT DENY
+    { "action": "shell", "resource": "git cherry-pick *", "effect": "deny" },
+    { "action": "shell", "resource": "git clean *", "effect": "deny" },
+    { "action": "shell", "resource": "git config *", "effect": "deny" },
+    { "action": "shell", "resource": "git merge *", "effect": "deny" },
+    { "action": "shell", "resource": "git push *", "effect": "deny" },
+    { "action": "shell", "resource": "git rebase *", "effect": "deny" },
+    { "action": "shell", "resource": "git reset *", "effect": "deny" },
+    { "action": "shell", "resource": "git restore *", "effect": "deny" },
+    { "action": "shell", "resource": "git stash *", "effect": "deny" },
 
-      // GIT DENY
-      "git cherry-pick *": "deny",
-      "git clean *": "deny",
-      "git config *": "deny",
-      "git merge *": "deny",
-      "git push *": "deny",
-      "git rebase *": "deny",
-      "git reset *": "deny",
-      "git restore *": "deny",
-      "git stash *": "deny",
+    // LUA ALLOW
+    { "action": "shell", "resource": "luac -p *", "effect": "allow" },
 
-      // LUA ALLOW
-      "luac -p *": "allow",
+    // NEOVIM ALLOW
+    { "action": "shell", "resource": "nvim --version", "effect": "allow" },
 
-      // NEOVIM ALLOW
-      "nvim --version": "allow",
+    // UNIX ALLOW
+    { "action": "shell", "resource": "ls", "effect": "allow" },
 
-      // UNIX ALLOW
-      "ls": "allow"
-    },
-
-    "edit": "allow",
-    "glob": "allow",
-    "grep": "allow",
-    "question": "allow",
-    "read": "allow",
-    "skill": "allow",
-    "task": "allow",
-    "todowrite": "allow",
-    "webfetch": "allow",
-    "websearch": "allow"
-  }
+    { "action": "edit", "resource": "*", "effect": "allow" },
+    { "action": "glob", "resource": "*", "effect": "allow" },
+    { "action": "grep", "resource": "*", "effect": "allow" },
+    { "action": "question", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "skill", "resource": "*", "effect": "allow" },
+    { "action": "subagent", "resource": "*", "effect": "allow" },
+    { "action": "todowrite", "resource": "*", "effect": "allow" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" },
+    { "action": "websearch", "resource": "*", "effect": "allow" }
+  ]
 }
