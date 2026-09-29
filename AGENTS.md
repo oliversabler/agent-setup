@@ -4,4 +4,4 @@
 
 ## Behavior
 - Prefer small, focused changes
-- Avoid modifying unrelated files
+- Do not modifying unrelated files
